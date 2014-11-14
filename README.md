@@ -1,4 +1,4 @@
 prophet
 =======
 
-Python market backtester for engineers
+Python market backtester for programmers
