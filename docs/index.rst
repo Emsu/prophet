@@ -8,25 +8,9 @@ Welcome to Prophet
 
 Prophet is a microframework for financial markets. Prophet strives to let the programmer focus on modeling financial strategies, portfolio management, and analyzing backtests. It achieves this by having few functions to learn to hit the ground running, yet being flexible enough to accomodate sophistication.
 
+Go to :ref:`quickstart` to get started or see the :ref:`tutorial` for a more thorough introduction.
 
-.. code-block:: python
-
-    # Hello World!
-
-    from prophet import Prophet
-
-    def generate_orders():
-        pass
-   
-    symbols = ['GOOG']
-
-    prophet = Prophet()
-    prophet.set_universe(symbols)
-    prophet.set_order_generator(generate_orders)
-    backtest = prophet.run_backtest()
-    print prophet.analyze_backtest(backtest)
-
-See the :ref:`tutorial` for a more thorough introduction.
+Prophet's data generators, order generators, and analyzers are all executed sequentially which is conducive to allowing individuals to build off of others work. If you have a package you would like to share, please open an issue on the github repository to register it in the :ref:`registry`.
 
 Features
 --------
@@ -42,9 +26,11 @@ User Guide
 .. toctree::
    :maxdepth: 2
 
+   quickstart
    tutorial
    advanced
    best_practices
+   registry
 
 
 API Reference

@@ -115,10 +115,12 @@ html_sidebars = {
 }
 html_static_path = ['_static']
 html_theme_options = {
+    'logo': 'img/logo.png',
     'github_user': 'Emsu',
     'github_repo': 'prophet',
     'github_button': True,
     'github_banner': True,
+    'show_powered_by': False,
 }
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
