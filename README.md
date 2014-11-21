@@ -1,4 +1,4 @@
-prophet
+![prophet](docs/_static/img/logo.png?raw=true "Prophet")
 =======
 
 > Prophet is a Python microframework for financial markets. Prophet strives to let the programmer focus on modeling financial strategies, portfolio management, and analyzing backtests. It achieves this by having few functions to learn to hit the ground running, yet being flexible enough to accomodate sophistication.
