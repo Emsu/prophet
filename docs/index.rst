@@ -6,7 +6,7 @@
 Welcome to Prophet
 ==================
 
-Prophet is a microframework for financial markets. Prophet strives to let the programmer focus on modeling financial strategies, portfolio management, and analyzing backtests. It achieves this by having few functions to learn to hit the ground running, yet being flexible enough to accomodate sophistication.
+Prophet is a Python microframework for financial markets. Prophet strives to let the programmer focus on modeling financial strategies, portfolio management, and analyzing backtests. It achieves this by having few functions to learn to hit the ground running, yet being flexible enough to accomodate sophistication.
 
 Go to :ref:`quickstart` to get started or see the :ref:`tutorial` for a more thorough introduction.
 

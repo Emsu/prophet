@@ -1,7 +1,7 @@
 prophet
 =======
 
-Python lightweight financial markets framework for programmers
+> Prophet is a Python microframework for financial markets. Prophet strives to let the programmer focus on modeling financial strategies, portfolio management, and analyzing backtests. It achieves this by having few functions to learn to hit the ground running, yet being flexible enough to accomodate sophistication.
 
 ## Quickstart
 
@@ -30,10 +30,8 @@ Please feel free to contribute your data source function so others can use it to
 
 Please ensure that the tests pass before you open a pull request.
 
-## Design Goals
+    pip install dev-requirements.txt
 
-### API surface:
-The high level API of prophet will be small (but powerful) so that it will be easy to pickup and use.
-
-### Flexible
-Despite the small surface of the high level API, prophet provides the building blocks by exposing low level functions you can use to create custom version of the high level API if you need it.
+## Credits
+Prophet wouldn't be possible without the wonderful [pandas](https://github.com/pydata/pandas) library and is inspired by [QSTK](https://github.com/tucker777/QSTK) and [Zipline](https://github.com/quantopian/zipline).
+The [trading calendar util](https://) in Prophet is from [Zipline](https://github.com/quantopian/zipline) which is under the [Apache 2.0 License](https://github.com/quantopian/zipline/blob/master/LICENSE).

@@ -1,0 +1,2 @@
+class ProphetException(Exception):
+    pass
