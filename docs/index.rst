@@ -26,7 +26,7 @@ Prophet is a microframework for financial markets. Prophet strives to let the pr
     backtest = prophet.run_backtest()
     print prophet.analyze_backtest(backtest)
 
-See the :ref:`quickstart` for a more thorough introduction.
+See the :ref:`tutorial` for a more thorough introduction.
 
 Features
 --------
@@ -42,7 +42,8 @@ User Guide
 .. toctree::
    :maxdepth: 2
 
-   quickstart
+   tutorial
+   advanced
    best_practices
 
 

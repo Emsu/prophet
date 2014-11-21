@@ -1,10 +1,10 @@
-.. _quickstart:
+.. _tutorial:
 
-Quickstart
+Tutorial
 ==========
 
-Tutorial Application
---------------------
+Introduction
+------------
 
 Data Generation
 ---------------
