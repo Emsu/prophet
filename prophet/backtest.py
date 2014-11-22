@@ -6,6 +6,11 @@ from prophet.exceptions import ProphetException
 
 
 class BackTest(pd.Series):
+    """ Timeseries data representing portfolio value over the backtest period.
+
+    Note:
+        Subclasses :class:`pd.Series` in v0.1
+    """
 
     def get_daily_returns(self):
         """ Computes Series of daily returns

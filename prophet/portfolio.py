@@ -1,4 +1,11 @@
 class Portfolio(dict):
+    """ Portfolio object where keys are stock symbols and
+    values are share counts. You can pass thise into a backtest
+    to start with an initial basket of stocks.
+
+    Note:
+        Subclasses dict in v0.1
+    """
 
     def __unicode__(self):
         return self.__repr__()
