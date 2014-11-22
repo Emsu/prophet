@@ -8,7 +8,7 @@ Introduction
 
 You can get the full source code of the tutorial `here <https://github.com/Emsu/prophet/tree/master/examples/tutorial>`_
 
-The tutorial is based off of :class:`Prophet`
+The tutorial is based off of the last homework in QSTK. There are some differences that will be explained. This tutorial is currently unfinished so please read the source code linked above. Hopefully I'll get it done tomorrow.
 
 Data Generation
 ---------------
