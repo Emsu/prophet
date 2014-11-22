@@ -48,6 +48,11 @@ method, this part of the documentation is for you.
 Contributor Guide
 -----------------
 
+.. toctree::
+   :maxdepth: 2
+
+   contributors
+
 
 Additional Notes
 ----------------

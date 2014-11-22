@@ -3,27 +3,59 @@
 Quickstart
 ==========
 
+To install Prophet, run:
+
+.. code-block:: bash
+
+    pip install prophet
+
+Here's a quick simulation with a OrderGenerator that uses avoids leverage and buys 100 shares of AAPL stock a day as long as it has enough cash.
+
 .. code-block:: python
 
-    # Hello World!
-    import datetime as dt
-    from prophet import Prophet
-    from prophet.data import YahooCloseData
-    from prophet.analyze import default_analyzers
-    from prophet.orders import Orders
+   import datetime as dt
+
+   from prophet import Prophet
+   from prophet.data import YahooCloseData
+   from prophet.analyze import default_analyzers
+   from prophet.orders import Orders
 
 
-    # A simple order generator that buys nothing
-    class OrderGenerator(object):
-        def run(self, prices, timestamp, cash, **kwargs):
-            return Orders()
+   class OrderGenerator(object):
+
+       def __init__(self):
+           super(OrderGenerator, self).__init__()
+           self._data = dict()
+
+       def run(self, prices, timestamp, cash, **kwargs):
+           # Lets buy lots of Apple!
+           symbol = "AAPL"
+           orders = Orders()
+           if (prices.loc[timestamp, symbol] * 100) < cash:
+               orders.add_order(symbol, 100)
+
+           return orders
 
 
-    prophet = Prophet()
-    prophet.set_universe(["AAPL", "XOM"])
-    prophet.register_data_generators(YahooCloseData())
-    prophet.set_order_generator(OrderGenerator())
-    prophet.register_portfolio_analyzers(default_analyzers())
+   prophet = Prophet()
+   prophet.set_universe(["AAPL", "XOM"])
+   prophet.register_data_generators(YahooCloseData())
+   prophet.set_order_generator(OrderGenerator())
+   prophet.register_portfolio_analyzers(default_analyzers)
 
-    backtest = prophet.run_backtest(start=dt.datetime(2010, 1, 1))
-    analysis = prophet.analyze_backtest(backtest)
+   backtest = prophet.run_backtest(start=dt.datetime(2010, 1, 1))
+   analysis = prophet.analyze_backtest(backtest)
+   print analysis
+   # +--------------------------------------+
+   # | sharpe            |    1.09754359611 |
+   # | average_return    | 0.00105478425027 |
+   # | cumulative_return |         2.168833 |
+   # | volatility        |  0.0152560508189 |
+   # +--------------------------------------+
+
+   # Generate orders for your to execute today
+   # Using Nov, 10 2014 as the date because there might be no data for today's
+   # date (Market might not be open) and we don't want examples to fail.
+   today = dt.datetime(2014, 11, 10)
+   print prophet.generate_orders(today)
+   # Orders[Order(symbol='AAPL', shares=100)]

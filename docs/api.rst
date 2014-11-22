@@ -51,10 +51,33 @@ Analyzer Objects
 .. autoclass:: Analyzer
    :members:
 
+.. autoclass:: Volatility
+   :members:
+
+.. autoclass:: AverageReturn
+   :members:
+
+.. autoclass:: Sharpe
+   :members:
+
+.. autoclass:: CumulativeReturn
+   :members:
+
+.. autodata:: default_analyzers
+
 Data Objects
 ------------
 
 .. module:: prophet.data
 
+.. autoclass:: DataGenerator
+   :members:
+
+.. autoclass:: PandasDataGenerator
+   :members:
+
 .. autoclass:: YahooCloseData
+   :members:
+
+.. autoclass:: YahooVolumeData
    :members:
