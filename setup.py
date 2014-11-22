@@ -1,4 +1,5 @@
 from setuptools import setup
+from setuptools import find_packages
 
 
 setup(
@@ -8,7 +9,7 @@ setup(
         "pytz>=2014.9",
         "pandas>=0.15.1",
     ],
-    packages=['prophet'],
+    packages=find_packages(),
     author='Michael Su',
     author_email='mdasu1@gmail.com',
     description='Microframework for analyzing financial markets.',
