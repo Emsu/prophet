@@ -3,6 +3,7 @@
 pandas==0.15.1
 
 mock==1.0.1
+livereload=2.2.0
 Sphinx==1.2.3
 alabaster==0.6.1
 sphinxcontrib-napoleon==0.2.8

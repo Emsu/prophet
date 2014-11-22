@@ -17,9 +17,10 @@ import os
 
 import mock
 
-MOCK_MODULES = ['numpy', 'pandas']
+MOCK_MODULES = ['numpy', 'pandas', 'pandas.io',
+'prophet.utils.tradingcalendar']
 for mod_name in MOCK_MODULES:
-	sys.modules[mod_name] = mock.Mock()
+    sys.modules[mod_name] = mock.Mock()
 
 import alabaster
 
