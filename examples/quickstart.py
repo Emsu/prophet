@@ -38,7 +38,7 @@ print analysis
 # | volatility        |  0.0152560508189 |
 # +--------------------------------------+
 
-# Generate orders for your to execute today
+# Generate orders for you to execute today
 # Using Nov, 10 2014 as the date because there might be no data for today's
 # date (Market might not be open) and we don't want examples to fail.
 today = datetime(2014, 11, 10)
