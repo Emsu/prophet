@@ -4,7 +4,7 @@
 
 ![build status](https://travis-ci.org/Emsu/prophet.svg?branch=master "Travis Build Status")
 
-See the [documentation](http://prophet.michaelsu.io/) for more details.
+Prophet is Python 2 and 3 compatible. See the [documentation](http://prophet.michaelsu.io/) for more details.
 
 Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe).
 
@@ -43,7 +43,7 @@ backtest = prophet.run_backtest(start=datetime(2010, 1, 1))
 
 prophet.register_portfolio_analyzers(default_analyzers)
 analysis = prophet.analyze_backtest(backtest)
-print analysis
+print(analysis)
 # +--------------------------------------+
 # | sharpe            |    1.09754359611 |
 # | average_return    | 0.00105478425027 |
@@ -55,7 +55,7 @@ print analysis
 # Using Nov, 10 2014 as the date because there might be no data for today's
 # date (Market might not be open) and we don't want examples to fail.
 today = datetime(2014, 11, 10)
-print prophet.generate_orders(today)
+print(prophet.generate_orders(today))
 # Orders[Order(symbol='AAPL', shares=100)]
 ```
 
@@ -67,6 +67,7 @@ Run the following to your development environment setup:
 git clone git@github.com:Emsu/prophet.git
 cd prophet
 virtualenv env
+. env/bin/activate
 pip install dev-requirements.txt
 python setup.py develop
 ```
