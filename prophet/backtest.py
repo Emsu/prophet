@@ -3,6 +3,7 @@ from collections import defaultdict
 import pandas as pd
 from prophet.portfolio import Portfolio
 from prophet.exceptions import ProphetException
+from six import iteritems
 
 
 class BackTest(pd.Series):
@@ -89,7 +90,7 @@ def backtest(cash,
         # Calculate total portfolio value for current timestamp
         current_value = cash
         portfolio_value = [prices[symbol].loc[timestamp] * shares for
-                           symbol, shares in portfolio_shares.iteritems()]
+                           symbol, shares in iteritems(portfolio_shares)]
         current_value += sum(portfolio_value)
         portfolio_values.append(current_value)
 

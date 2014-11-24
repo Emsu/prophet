@@ -1,3 +1,6 @@
+from six import iteritems
+
+
 class Portfolio(dict):
     """ Portfolio object where keys are stock symbols and
     values are share counts. You can pass thise into a backtest
@@ -15,7 +18,7 @@ class Portfolio(dict):
 
     def __repr__(self):
         shares = []
-        for key, value in self.iteritems():
+        for key, value in iteritems(self):
             shares.append("%s=%s" % (key, value))
         share_info = ", ".join(shares)
         return "Portfolio(%s)" % share_info

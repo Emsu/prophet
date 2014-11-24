@@ -8,6 +8,7 @@ setup(
     install_requires=[
         "pytz>=2014.9",
         "pandas>=0.15.1",
+        "six>=1.8.0"
     ],
     packages=find_packages(),
     author='Michael Su',
