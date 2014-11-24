@@ -8,9 +8,13 @@ from prophet.utils import trading_days
 
 
 class DataGenerator(object):
-    # Caching based on Zipline
-    DATA_PATH = os.path.join(os.path.expanduser("~"), '.prophet', 'data')
-    CACHE_PATH = os.path.join(os.path.expanduser("~"), '.prophet', 'cache')
+
+    def __init__(self, cache_path=None, data_path=None):
+        # Caching based on Zipline
+        self.DATA_PATH = data_path or os.path.join(
+            os.path.expanduser("~"), '.prophet', 'data')
+        self.CACHE_PATH = cache_path or os.path.join(
+            os.path.expanduser("~"), '.prophet', 'cache')
 
     def get_data_start(self, start, lookback):
         start_index = trading_days.get_loc(start)
@@ -90,7 +94,7 @@ class YahooVolumeData(PandasDataGenerator):
         if not end:
             end = datetime.now()
 
-        symbols_data = super(YahooCloseData, self).run(
+        symbols_data = super(YahooVolumeData, self).run(
             data=data, symbols=symbols, start=start,
             end=end, lookback=lookback, source="yahoo")
 
