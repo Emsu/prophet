@@ -30,7 +30,7 @@ backtest = prophet.run_backtest(start=datetime(2010, 1, 1))
 
 prophet.register_portfolio_analyzers(default_analyzers)
 analysis = prophet.analyze_backtest(backtest)
-print analysis
+print(analysis)
 # +--------------------------------------+
 # | sharpe            |    1.09754359611 |
 # | average_return    | 0.00105478425027 |
@@ -42,5 +42,5 @@ print analysis
 # Using Nov, 10 2014 as the date because there might be no data for today's
 # date (Market might not be open) and we don't want examples to fail.
 today = datetime(2014, 11, 10)
-print prophet.generate_orders(today)
+print(prophet.generate_orders(today))
 # Orders[Order(symbol='AAPL', shares=100)]
