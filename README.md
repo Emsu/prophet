@@ -4,7 +4,7 @@
 
 See the [documentation](http://prophet.michaelsu.io/) for more details.
 
-Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or email `prophet-financial-framework+subscribe@googlegroups.com`
+Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe).
 
 ## Quickstart
 
