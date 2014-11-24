@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='prophet',
-    version='0.1.0',
+    version='0.1.1',
     install_requires=[
         "pytz>=2014.9",
         "pandas>=0.15.1",
