@@ -12,6 +12,8 @@ Go to :ref:`quickstart` to get started or see the :ref:`tutorial` for a more tho
 
 Prophet's data generators, order generators, and analyzers are all executed sequentially which is conducive to allowing individuals to build off of others work. If you have a package you would like to share, please open an issue on the github repository to register it in the :ref:`registry`.
 
+Join the mailing list `here <https://groups.google.com/forum/#!forum/prophet-financial-framework>`_ or join by `email <mailto:prophet-financial-framework+subscribe@googlegroups.com>`_.
+
 Features
 --------
 
