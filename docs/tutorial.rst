@@ -44,7 +44,7 @@ Then you register any data generators.
                                     BollingerData(),
                                     BollingerEventStudy())
 
-.. note:: Please see the source code of :code:`prophet.data` for an example of a data generator. Data generators don't have to just pull raw data though like :class:`prophet.data.YahooCloseData` does. For instace, you can generate correlation data based off the price data. Prophet encourages you to logically separate out different steps in your analysis.
+.. note:: Please see the source code of :code:`prophet.data` for an example of a data generator. Data generators don't have to just pull raw data though like :class:`prophet.data.YahooCloseData` does. For instance, you can generate correlation data based off the price data. Prophet encourages you to logically separate out different steps in your analysis.
 
 The :attr:`name` attribute of each of the generators is the key on the :attr:`data` object at which the generated data is stored. This data object is passed into each of the data generators. For example, since the :class:`YahooCloseData` object has the name "prices", we can use the price data in the :class:`BollingerData` that we execute right after.
 
@@ -73,6 +73,8 @@ The :attr:`name` attribute of each of the generators is the key on the :attr:`da
             return bollinger_values
 
 See how the :meth:`BollingerData.run` method uses the price data to generate a rolling standard deviation and rolling mean. The fillna method is used here to fill in missing data. Realistically, only the :meth:`bfill` method is uses in this example because the first 20 days won't have 20 prior days of price data to generate the rolling mean and standard deviation.
+
+.. note:: :code:`prices` is also passed into the run function of all :code:`DataGenerator` objects for convenience but we want to emphasize that the :code:`data` object is where most data from data generators is stored.
 
 The line below normalizes the bollinger data relative to the the rolling standard devation. This gives us the number of standard devations as an integer value. This means a value of 2 would be the upper band and a value of -2 would be the lower band.
 
