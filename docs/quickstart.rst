@@ -23,10 +23,6 @@ Here's a quick simulation with a OrderGenerator that uses avoids leverage and bu
 
    class OrderGenerator(object):
 
-       def __init__(self):
-           super(OrderGenerator, self).__init__()
-           self._data = dict()
-
        def run(self, prices, timestamp, cash, **kwargs):
            # Lets buy lots of Apple!
            symbol = "AAPL"

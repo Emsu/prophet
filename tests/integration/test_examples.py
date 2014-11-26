@@ -13,10 +13,6 @@ CACHE_PATH = os.path.join(os.path.dirname(__file__), 'data')
 
 class OrderGenerator(object):
 
-    def __init__(self):
-        super(OrderGenerator, self).__init__()
-        self._data = dict()
-
     def run(self, prices, timestamp, cash, **kwargs):
         symbol = "AAPL"
         orders = Orders()
