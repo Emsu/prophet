@@ -1,5 +1,4 @@
 import pandas as pd
-import datetime as dt
 
 from prophet.orders import Orders
 from prophet.data import DataGenerator
@@ -9,9 +8,6 @@ class BollingerEventStudy(DataGenerator):
     name = "events"
 
     def run(self, data, symbols, start, end, lookback, **kwargs):
-        if not end:
-            end = dt.datetime.now()
-
         bollinger_data = data['bollinger']
 
         # Add an extra timestamp before close_data.index to be able

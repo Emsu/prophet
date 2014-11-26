@@ -90,9 +90,6 @@ At this point we need one more generator. We will call this one BollingerEventSt
         name = "events"
 
         def run(self, data, symbols, start, end, lookback, **kwargs):
-            if not end:
-                end = dt.datetime.now()
-
             bollinger_data = data['bollinger']
 
             # Add an extra timestamp before close_data.index to be able
