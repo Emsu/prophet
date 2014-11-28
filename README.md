@@ -64,7 +64,7 @@ git clone git@github.com:Emsu/prophet.git
 cd prophet
 virtualenv env
 . env/bin/activate
-pip install dev-requirements.txt
+pip install -r dev-requirements.txt
 python setup.py develop
 ```
 

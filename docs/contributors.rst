@@ -10,7 +10,8 @@ Setup your dev environment with the following commands.
     git clone git@github.com:Emsu/prophet.git
     cd prophet
     virtualenv env
-    pip install dev-requirements.txt
+    . env/bin/activate
+    pip install -r dev-requirements.txt
     python setup.py develop
 
 
