@@ -3,7 +3,7 @@ from six import iteritems
 
 class Portfolio(dict):
     """ Portfolio object where keys are stock symbols and
-    values are share counts. You can pass thise into a backtest
+    values are share counts. You can pass these into a backtest
     to start with an initial basket of stocks.
 
     Note:
