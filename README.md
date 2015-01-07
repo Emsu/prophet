@@ -6,7 +6,7 @@
 
 Prophet is Python 2 and 3 compatible. See the [documentation](http://prophet.michaelsu.io/) for more details.
 
-Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe). See the [Trello Board](https://trello.com/b/aLJfeNhl/prophet) to see what's currently in the works.
+Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe). See the [development board](https://trello.com/b/aLJfeNhl/prophet) to see what's currently in the works.
 
 ## Installation
 
