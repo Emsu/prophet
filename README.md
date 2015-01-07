@@ -6,7 +6,7 @@
 
 Prophet is Python 2 and 3 compatible. See the [documentation](http://prophet.michaelsu.io/) for more details.
 
-Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe).
+Join the mailing list [here](https://groups.google.com/forum/#!forum/prophet-financial-framework) or join by [email](mailto:prophet-financial-framework+subscribe@googlegroups.com?subject=Subscribe). See the [Trello Board](https://trello.com/b/aLJfeNhl/prophet) to see what's currently in the works.
 
 ## Quickstart
 
@@ -69,6 +69,4 @@ python setup.py develop
 ```
 
 ## Credits
-Prophet wouldn't be possible without the wonderful [pandas](https://github.com/pydata/pandas) library and is inspired by [QSTK](https://github.com/tucker777/QSTK) and [Zipline](https://github.com/quantopian/zipline).
-
-The [trading calendar util](https://github.com/Emsu/prophet/blob/master/prophet/utils/tradingcalendar.py) in Prophet is from [Zipline](https://github.com/quantopian/zipline) which is under the [Apache 2.0 License](https://github.com/quantopian/zipline/blob/master/LICENSE).
+Prophet wouldn't be possible without the wonderful [pandas](https://github.com/pydata/pandas) library and is inspired by [QSTK](https://github.com/tucker777/QSTK) and [Zipline](https://github.com/quantopian/zipline). The [trading calendar util](https://github.com/Emsu/prophet/blob/master/prophet/utils/tradingcalendar.py) in Prophet is from [Zipline](https://github.com/quantopian/zipline) which is under the [Apache 2.0 License](https://github.com/quantopian/zipline/blob/master/LICENSE).
