@@ -46,7 +46,7 @@ class Prophet(object):
             portfolio (prophet.portfolio.Portfolio): Starting portfolio
 
         Return:
-            pandas.backtest.BackTest
+            prophet.backtest.BackTest
         """
         # Setup
         if not end:
