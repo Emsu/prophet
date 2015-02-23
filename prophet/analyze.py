@@ -24,9 +24,24 @@ class Sharpe(Analyzer):
         volatility = data['volatility']
         risk_free_rate = config.get('RISK_FREE_RATE', 0)
         trading_days = config.get('YEARLY_TRADING_DAYS', 252)
+        if volatility == 0:
+            return 0
         return ((avg_daily_returns - risk_free_rate) / volatility
                 * math.sqrt(trading_days))
 
+class Sortino(Analyzer):
+    name = 'sortino'
+
+    def run(self, backtest, data, config, **kwargs):
+        avg_daily_returns = data['average_return']
+        negative_returns = backtest.get_daily_returns()[backtest.get_daily_returns() < 0]
+        volatility_negative_returns = negative_returns.std()
+        risk_free_rate = config.get('RISK_FREE_RATE', 0)
+        trading_days = config.get('YEARLY_TRADING_DAYS', 252)
+        if volatility_negative_returns == 0:
+            return 0
+        return ((avg_daily_returns - risk_free_rate) / volatility_negative_returns
+                * math.sqrt(trading_days))
 
 class AverageReturn(Analyzer):
     name = 'average_return'
@@ -48,6 +63,8 @@ class MaximumDrawdown(Analyzer):
     def run(self, backtest, **kwargs):
         dd_end = np.argmax(np.maximum.accumulate(backtest) - backtest)
         dd_start = np.argmax(backtest[:dd_end])
+        if backtest[dd_start] == 0:
+            return 0
         return 1-backtest[dd_end]/backtest[dd_start]
 
 
@@ -59,4 +76,4 @@ class Analysis(dict):
 
 
 default_analyzers = [Volatility(), AverageReturn(),
-                     Sharpe(), CumulativeReturn(), MaximumDrawdown()]
+                     Sharpe(), CumulativeReturn(), MaximumDrawdown(), Sortino()]
