@@ -32,10 +32,10 @@ def test_quickstart():
 
     prophet.register_portfolio_analyzers(default_analyzers)
     analysis = prophet.analyze_backtest(backtest)
-    assert round(analysis['sharpe'], 10) == 1.0970973495
-    assert round(analysis['average_return'], 10) == 0.0010547843
-    assert round(analysis['cumulative_return'], 10) == 2.1688171559
-    assert round(analysis['volatility'], 10) == 0.0152622562
+    assert round(analysis['sharpe'], 10) == 1.1083876014
+    assert round(analysis['average_return'], 10) == 0.0010655311
+    assert round(analysis['cumulative_return'], 10) == 2.2140809296
+    assert round(analysis['volatility'], 10) == 0.0152607097
 
     today = datetime(2014, 11, 10)
     expected_orders = Orders(Order(symbol='AAPL', shares=100))
