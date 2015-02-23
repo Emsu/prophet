@@ -63,11 +63,6 @@ def backtest(cash,
 
     timestamps = prices.index.to_series().loc[start:]
 
-    # Check if the last day doesn't have data yet
-    # Like if it was early in the morning
-    if not timestamps[-1] in prices:
-        timestamps = timestamps[:-1]
-
     for timestamp in timestamps:
         orders = order_generator.run(data=data,
                                      timestamp=timestamp,
