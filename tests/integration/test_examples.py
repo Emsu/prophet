@@ -25,7 +25,6 @@ def test_quickstart():
     prophet = Prophet()
     prophet.set_universe(['AAPL', 'XOM'])
 
-    print CACHE_PATH
     prophet.register_data_generators(YahooCloseData(cache_path=CACHE_PATH))
     prophet.set_order_generator(OrderGenerator())
     backtest = prophet.run_backtest(start=datetime(2010, 1, 1),
