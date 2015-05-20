@@ -1,4 +1,3 @@
-from datetime import datetime
 import os
 
 import pandas as pd
@@ -45,7 +44,7 @@ class PandasDataGenerator(DataGenerator):
             if os.path.exists(cache_filepath):
                 symbol_data = pd.DataFrame.from_csv(cache_filepath)
             else:
-                symbol_data = web.DataReader(symbol, 'yahoo',
+                symbol_data = web.DataReader(symbol, source,
                                              data_start, end).sort_index()
                 symbol_data.to_csv(cache_filepath)
             symbols_data[symbol] = symbol_data
@@ -62,40 +61,3 @@ class PandasDataGenerator(DataGenerator):
         return symbols_panel.loc[:, ((symbols_panel.major_axis >= data_start)
                                      & (symbols_panel.major_axis <= end))]
 
-
-class YahooCloseData(PandasDataGenerator):
-    name = 'prices'
-
-    def run(self,
-            data,
-            symbols,
-            start=datetime(2007, 1, 1),
-            end=None,
-            lookback=0):
-        if not end:
-            end = datetime.now()
-
-        symbols_data = super(YahooCloseData, self).run(
-            data=data, symbols=symbols, start=start,
-            end=end, lookback=lookback, source="yahoo")
-
-        return symbols_data['Adj Close']
-
-
-class YahooVolumeData(PandasDataGenerator):
-    name = 'volume'
-
-    def run(self,
-            data,
-            symbols,
-            start=datetime(2007, 1, 1),
-            end=None,
-            lookback=0):
-        if not end:
-            end = datetime.now()
-
-        symbols_data = super(YahooVolumeData, self).run(
-            data=data, symbols=symbols, start=start,
-            end=end, lookback=lookback, source="yahoo")
-
-        return symbols_data['Volume']

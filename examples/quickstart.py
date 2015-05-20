@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from prophet import Prophet
-from prophet.data import YahooCloseData
+from prophet.generators import YahooCloseData
 from prophet.analyze import default_analyzers
 from prophet.orders import Orders
 
