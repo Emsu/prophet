@@ -24,6 +24,11 @@ class DataGenerator(object):
             os.makedirs(self.CACHE_PATH)
         return os.path.join(self.CACHE_PATH, name)
 
+    def get_data_filepath(self, name):
+        if not os.path.exists(self.DATA_PATH):
+            os.makedirs(self.DATA_PATH)
+        return os.path.join(self.DATA_PATH, name)
+
     def sanitize_name(self, name):
         return name.replace(os.path.sep, '--')
 

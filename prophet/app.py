@@ -168,7 +168,7 @@ class Prophet(object):
         if prices is None:
             raise ProphetException("Price data is required to run a backtest. "
                                    "Please add a data generator with the name "
-                                   "property set to 'price'.")
+                                   "property set to 'prices'.")
         return self._order_generator.run(prices=prices,
                                          data=data,
                                          timestamp=target_datetime,
