@@ -2,6 +2,7 @@ from datetime import datetime
 from prophet.data import PandasDataGenerator
 
 class YahooData(PandasDataGenerator):
+
     def __init__(self, column, name):
         super(YahooData, self).__init__()
         self._column = column

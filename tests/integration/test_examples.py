@@ -2,7 +2,7 @@ from datetime import datetime
 import os
 
 from prophet import Prophet
-from prophet.data import YahooCloseData
+from prophet.generators import YahooData
 from prophet.analyze import default_analyzers
 from prophet.orders import Order
 from prophet.orders import Orders
@@ -25,7 +25,8 @@ def test_quickstart():
     prophet = Prophet()
     prophet.set_universe(['AAPL', 'XOM'])
 
-    prophet.register_data_generators(YahooCloseData(cache_path=CACHE_PATH))
+    price_generator = YahooData('Adj Close', 'prices', cache_path=CACHE_PATH)
+    prophet.register_data_generators(price_generator)
     prophet.set_order_generator(OrderGenerator())
     backtest = prophet.run_backtest(start=datetime(2010, 1, 1),
                                     end=datetime(2014, 11, 21))
