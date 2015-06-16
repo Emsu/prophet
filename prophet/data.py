@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+from datetime import datetime
 from pandas.io import data as web
 from prophet.exceptions import ProphetException
 from prophet.utils import trading_days
@@ -66,3 +67,39 @@ class PandasDataGenerator(DataGenerator):
         return symbols_panel.loc[:, ((symbols_panel.major_axis >= data_start)
                                      & (symbols_panel.major_axis <= end))]
 
+class YahooCloseData(PandasDataGenerator):
+    name = 'prices'
+
+    def run(self,
+            data,
+            symbols,
+            start=datetime(2007, 1, 1),
+            end=None,
+            lookback=0):
+        if not end:
+            end = datetime.now()
+
+        symbols_data = super(YahooCloseData, self).run(
+            data=data, symbols=symbols, start=start,
+            end=end, lookback=lookback, source="yahoo")
+
+        return symbols_data['Adj Close']
+
+
+class YahooVolumeData(PandasDataGenerator):
+    name = 'volume'
+
+    def run(self,
+            data,
+            symbols,
+            start=datetime(2007, 1, 1),
+            end=None,
+            lookback=0):
+        if not end:
+            end = datetime.now()
+
+        symbols_data = super(YahooVolumeData, self).run(
+            data=data, symbols=symbols, start=start,
+            end=end, lookback=lookback, source="yahoo")
+
+        return symbols_data['Volume']
