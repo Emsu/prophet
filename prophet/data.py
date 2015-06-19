@@ -1,7 +1,7 @@
-from datetime import datetime
 import os
 
 import pandas as pd
+from datetime import datetime
 from pandas.io import data as web
 from prophet.exceptions import ProphetException
 from prophet.utils import trading_days
@@ -50,7 +50,7 @@ class PandasDataGenerator(DataGenerator):
             if os.path.exists(cache_filepath):
                 symbol_data = pd.DataFrame.from_csv(cache_filepath)
             else:
-                symbol_data = web.DataReader(symbol, 'yahoo',
+                symbol_data = web.DataReader(symbol, source,
                                              data_start, end).sort_index()
                 symbol_data.to_csv(cache_filepath)
             symbols_data[symbol] = symbol_data
@@ -66,7 +66,6 @@ class PandasDataGenerator(DataGenerator):
         symbols_panel = symbols_panel.fillna(1.0)
         return symbols_panel.loc[:, ((symbols_panel.major_axis >= data_start)
                                      & (symbols_panel.major_axis <= end))]
-
 
 class YahooCloseData(PandasDataGenerator):
     name = 'prices'

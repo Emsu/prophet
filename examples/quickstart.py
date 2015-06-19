@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from prophet import Prophet
-from prophet.data import YahooCloseData
+from prophet.generators import YahooData
 from prophet.analyze import default_analyzers
 from prophet.orders import Orders
 
@@ -20,7 +20,9 @@ class OrderGenerator(object):
 prophet = Prophet()
 prophet.set_universe(['AAPL', 'XOM'])
 
-prophet.register_data_generators(YahooCloseData())
+price_generator = YahooData('Adj Close', 'prices')
+
+prophet.register_data_generators(price_generator)
 prophet.set_order_generator(OrderGenerator())
 backtest = prophet.run_backtest(start=datetime(2010, 1, 1))
 
