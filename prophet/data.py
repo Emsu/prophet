@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 from datetime import datetime
-from pandas.io import data as web
+import pandas_datareader.data as pdr
 from prophet.exceptions import ProphetException
 from prophet.utils import trading_days
 
@@ -50,7 +50,7 @@ class PandasDataGenerator(DataGenerator):
             if os.path.exists(cache_filepath):
                 symbol_data = pd.DataFrame.from_csv(cache_filepath)
             else:
-                symbol_data = web.DataReader(symbol, source,
+                symbol_data = pdr.DataReader(symbol, source,
                                              data_start, end).sort_index()
                 symbol_data.to_csv(cache_filepath)
             symbols_data[symbol] = symbol_data
