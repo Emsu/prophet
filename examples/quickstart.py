@@ -4,7 +4,7 @@ from prophet import Prophet
 from prophet.generators import YahooData
 from prophet.analyze import default_analyzers
 from prophet.orders import Orders
-
+from prophet.charting import visualize_backtest
 
 class OrderGenerator(object):
 
@@ -42,3 +42,6 @@ print(analysis)
 today = datetime(2014, 11, 10)
 print(prophet.generate_orders(today))
 # Orders[Order(symbol='AAPL', shares=100)]
+
+# chart the backtest performance
+visualize_backtest(backtest)
