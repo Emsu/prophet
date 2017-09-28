@@ -36,6 +36,10 @@ class DataGenerator(object):
 
 class PandasDataGenerator(DataGenerator):
 
+    def __init__(self, cache_path=None, data_path=None):
+        super(PandasDataGenerator, self).__init__(cache_path=cache_path,
+                                                  data_path=data_path)
+
     def run(self, data, start, end, symbols, source, lookback=0):
         data_start = self.get_data_start(start, lookback)
 
@@ -67,8 +71,13 @@ class PandasDataGenerator(DataGenerator):
         return symbols_panel.loc[:, ((symbols_panel.major_axis >= data_start)
                                      & (symbols_panel.major_axis <= end))]
 
+
 class YahooCloseData(PandasDataGenerator):
     name = 'prices'
+
+    def __init__(self, cache_path=None, data_path=None):
+        super(YahooCloseData, self).__init__(cache_path=cache_path,
+                                             data_path=data_path)
 
     def run(self,
             data,
