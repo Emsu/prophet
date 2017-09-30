@@ -12,7 +12,14 @@ class BackTest(pd.Series):
     Note:
         Subclasses :class:`pd.Series` in v0.1
     """
-
+    
+    def __init__(self, *args, **kwargs):
+        ''' get args that we'll pass to the constructor for pd.Series (e.g. data, index)
+            the kwargs we'll use to hold other info such as our ordersDict'''
+        super(BackTest, self).__init__(*args)
+        self.ordersDict = None if "ordersDict" not in kwargs else kwargs["ordersDict"]
+        self.prices = None if "prices" not in kwargs else kwargs["prices"]
+        
     def get_daily_returns(self):
         """ Computes Series of daily returns
 
@@ -62,7 +69,11 @@ def backtest(cash,
                                "property set to 'price'.")
 
     timestamps = prices.index.to_series().loc[start:]
-
+    # the orders object will hold orders for a particular timestamp
+    # ordersDict, on the other hand, holds every order over the life
+    # of the backtest with a timestamp key: type <class 'pandas._libs.tslib.Timestamp'>
+    ordersDict = {}
+    
     for timestamp in timestamps:
         orders = order_generator.run(data=data,
                                      timestamp=timestamp,
@@ -70,6 +81,9 @@ def backtest(cash,
                                      cash=cash,
                                      portfolio=portfolio)
 
+        if len(orders) > 0:
+            ordersDict[timestamp] = orders
+        
         for order in orders:
             # Get the price after slippage
             price = prices[order.symbol].loc[timestamp]
@@ -89,5 +103,5 @@ def backtest(cash,
         current_value += sum(portfolio_value)
         portfolio_values.append(current_value)
 
-    return BackTest(dict(zip(timestamps, portfolio_values)),
-                    index=timestamps)
+    return BackTest(dict(zip(timestamps, portfolio_values)), timestamps,
+                    ordersDict=ordersDict, prices=prices.loc[start:])
