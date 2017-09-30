@@ -80,21 +80,22 @@ def backtest(cash,
                                      prices=prices,
                                      cash=cash,
                                      portfolio=portfolio)
-
-        if len(orders) > 0:
-            ordersDict[timestamp] = orders
         
-        for order in orders:
-            # Get the price after slippage
-            price = prices[order.symbol].loc[timestamp]
-            if order.shares < 0:
-                adjusted_price = price * (1 - slippage)
-            else:
-                adjusted_price = price * (1 + slippage)
-
-            cash -= order.shares * adjusted_price
-            cash -= commission
-            portfolio_shares[order.symbol] += order.shares
+        if orders is not None:
+            if len(orders) > 0:
+                ordersDict[timestamp] = orders
+        
+            for order in orders:
+                # Get the price after slippage
+                price = prices[order.symbol].loc[timestamp]
+                if order.shares < 0:
+                    adjusted_price = price * (1 - slippage)
+                else:
+                    adjusted_price = price * (1 + slippage)
+    
+                cash -= order.shares * adjusted_price
+                cash -= commission
+                portfolio_shares[order.symbol] += order.shares
 
         # Calculate total portfolio value for current timestamp
         current_value = cash

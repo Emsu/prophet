@@ -58,12 +58,12 @@ def visualize_backtest(backtest):
             print("No trades were generated for this backtest")
         else:
             figStocks, axesStocks = plt.subplots(nrows=numStocks, ncols=1, 
-                                                 figsize=(9, 5 * numStocks))
-            # if there are multiple plots / rows then axes will be a list of Axes objects
+                                                 figsize=(9, 4 * numStocks))
+            # if there are multiple plots / rows then axes will be a array of Axes objects
             # otherwise axes will just be an Axes object
             # to keep things consistent I've made axes a list of Axes objects 
             # (even when numStocks = 1)
-            if not isinstance(axesStocks, list):
+            if not isinstance(axesStocks, np.ndarray):
                 axesStocks = [axesStocks]
             
             for i in range(len(axesStocks)):
