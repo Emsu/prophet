@@ -8,7 +8,11 @@ python:
   - "3.6"
 # command to install dependencies
 # Use sdist and pip install to test a distribution tarball
-install: "python setup.py sdist; find ./dist/ -iname *.tar.gz | xargs pip install"
+install:
+  - "python setup.py sdist; find ./dist/ -iname *.tar.gz | xargs pip install"
+  - pip install tox
+  - pip install pytest
+
 # command to run tests
 
 script:
