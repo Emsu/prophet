@@ -10,4 +10,6 @@ python:
 # Use sdist and pip install to test a distribution tarball
 install: "python setup.py sdist; find ./dist/ -iname *.tar.gz | xargs pip install"
 # command to run tests
-script: py.test tests
+
+script:
+  - tox
