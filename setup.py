@@ -4,10 +4,12 @@ from setuptools import find_packages
 
 setup(
     name='prophet',
-    version='0.1.1',
+    version='0.1.2',
     install_requires=[
         "pytz>=2014.9",
         "pandas>=0.15.1",
+        "pandas-datareader>=0.4.0",
+        "seaborn>=0.8"
         "six>=1.8.0"
     ],
     packages=find_packages(),
