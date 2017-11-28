@@ -1,10 +1,11 @@
 from datetime import datetime
 from prophet.data import PandasDataGenerator
 
+
 class YahooData(PandasDataGenerator):
 
-    def __init__(self, column, name):
-        super(YahooData, self).__init__()
+    def __init__(self, column, name, cache_path=None, data_path=None):
+        super(YahooData, self).__init__(cache_path=cache_path, data_path=data_path)
         self._column = column
         self.name = name
 
