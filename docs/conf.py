@@ -123,6 +123,7 @@ html_sidebars = {
 html_static_path = ['_static']
 html_theme_options = {
     'logo': 'img/logo.png',
+    'description': 'Sponsored by <a href="https://wokflow.com">Wokflow</a>',
     'github_user': 'Emsu',
     'github_repo': 'prophet',
     'github_button': True,
