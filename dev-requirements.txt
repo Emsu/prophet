@@ -1,7 +1,7 @@
 # Production
 # We install pandas here because numpy will break `python setup.py develop`
 # see http://stackoverflow.com/questions/25753276/install-numpy-pandas-as-dependency-in-setup-py
-pandas==0.15.1
+pandas>=0.15.1
 six==1.8.0
 
 # Development
