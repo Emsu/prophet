@@ -41,7 +41,7 @@ class PandasDataGenerator(DataGenerator):
                                                   data_path=data_path)
 
     def run(self, data, start, end, symbols, source, lookback=0):
-        data_start = self.get_data_start(start, lookback)
+        data_start = self.get_data_start(start, lookback).replace(tzinfo=None)
 
         # Current caching implementation based on Zipline
         symbols_data = dict()

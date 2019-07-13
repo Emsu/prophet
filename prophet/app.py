@@ -1,4 +1,5 @@
 import datetime as dt
+import pandas as pd
 
 from prophet.analyze import Analysis
 from prophet.portfolio import Portfolio
@@ -57,8 +58,10 @@ class Prophet(object):
             raise ProphetException("Must set an order generator by calling"
                                    "set_order_generator.")
 
-        timestamps = trading_days[(trading_days >= start) &
-                                  (trading_days <= end)]
+        start_utc = pd.to_datetime(start, utc=True)
+        end_utc = pd.to_datetime(end, utc=True)
+        timestamps = trading_days[(trading_days >= start_utc) &
+                                  (trading_days <= end_utc)]
         effective_start = timestamps[0]
 
         data = self._generate_data(start=effective_start,
