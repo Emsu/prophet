@@ -12,5 +12,5 @@ Sphinx==1.2.3
 alabaster==0.6.1
 sphinxcontrib-napoleon==0.2.8
 sphinx-autobuild==0.3.0
-pytest==2.6.4
+pytest==9.0.3
 tox==1.8.1
